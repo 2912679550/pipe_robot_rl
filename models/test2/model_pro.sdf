@@ -1,10 +1,6 @@
 <sdf version='1.7'>
-<<<<<<< HEAD
   <model name='test2'>
-    
-=======
-  <model name='test2_pkg'>
->>>>>>> 49388fb99f9d800709550b91ed403ab427787d25
+
     <link name='base_link'>
       <inertial>
         <pose>0.075 -0 -0.0025 0 -0 0</pose>
@@ -23,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/base_link.STL</uri>
+            <uri>model://test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -32,7 +28,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/base_link.STL</uri>
+            <uri>model://test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -74,7 +70,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link1.STL</uri>
+            <uri>model://test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -83,7 +79,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link1.STL</uri>
+            <uri>model://test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -125,7 +121,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link2.STL</uri>
+            <uri>model://test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -134,7 +130,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link2.STL</uri>
+            <uri>model://test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -176,7 +172,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link3.STL</uri>
+            <uri>model://test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -185,7 +181,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link3.STL</uri>
+            <uri>model://test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -227,7 +223,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link4.STL</uri>
+            <uri>model://test2/meshes/link4.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -236,7 +232,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2_pkg/meshes/link4.STL</uri>
+            <uri>model://test2/meshes/link4.STL</uri>
           </mesh>
         </geometry>
       </visual>
