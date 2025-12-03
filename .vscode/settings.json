@@ -8,5 +8,6 @@
         "/opt/ros/noetic/lib/python3/dist-packages",
         "/opt/intel/openvino_2023/python",
         "/opt/intel/openvino_2023/python/python3"
-    ]
+    ],
+    "cmake.ignoreCMakeListsMissing": true
 }

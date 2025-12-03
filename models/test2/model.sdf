@@ -1,5 +1,6 @@
 <sdf version='1.7'>
   <model name='test2'>
+    
     <link name='base_link'>
       <inertial>
         <pose>0.075 -0 -0.0025 0 -0 0</pose>
@@ -32,6 +33,7 @@
         </geometry>
       </visual>
     </link>
+
     <joint name='force1' type='revolute'>
       <pose relative_to='base_link'>0 0 0 0 -0 0</pose>
       <parent>base_link</parent>
@@ -48,6 +50,7 @@
         </dynamics>
       </axis>
     </joint>
+
     <link name='link1'>
       <pose relative_to='force1'>0 0 0 0 -0 0</pose>
       <inertial>
@@ -81,6 +84,7 @@
         </geometry>
       </visual>
     </link>
+
     <joint name='no_force1' type='revolute'>
       <pose relative_to='link1'>0.01109 0.038432 0 0 -0 0</pose>
       <parent>link1</parent>
@@ -97,6 +101,7 @@
         </dynamics>
       </axis>
     </joint>
+
     <link name='link2'>
       <pose relative_to='no_force1'>0 0 0 0 -0 0</pose>
       <inertial>
@@ -130,6 +135,7 @@
         </geometry>
       </visual>
     </link>
+
     <joint name='no_force2' type='revolute'>
       <pose relative_to='link2'>0.071655 0.035574 0 0 -0 0</pose>
       <parent>link2</parent>
@@ -146,6 +152,7 @@
         </dynamics>
       </axis>
     </joint>
+
     <link name='link3'>
       <pose relative_to='no_force2'>0 0 0 0 -0 0</pose>
       <inertial>
@@ -179,6 +186,7 @@
         </geometry>
       </visual>
     </link>
+
     <joint name='no_force3' type='revolute'>
       <pose relative_to='link3'>0.067254 -0.074006 0 0 -0 0</pose>
       <parent>link3</parent>
@@ -195,6 +203,7 @@
         </dynamics>
       </axis>
     </joint>
+
     <link name='link4'>
       <pose relative_to='no_force3'>0 0 0 0 -0 0</pose>
       <inertial>
@@ -228,5 +237,6 @@
         </geometry>
       </visual>
     </link>
+    
   </model>
 </sdf>
