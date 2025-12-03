@@ -19,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/base_link.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -27,8 +27,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://test2/meshes/base_link.STL</uri>
+            <scale>2 2 4</scale>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -70,7 +70,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link1.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -79,7 +79,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link1.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -121,7 +121,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link2.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -130,7 +130,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link2.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -172,7 +172,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link3.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -181,7 +181,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link3.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -223,7 +223,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link4.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -232,7 +232,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://test2/meshes/link4.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
           </mesh>
         </geometry>
       </visual>
