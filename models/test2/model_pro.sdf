@@ -1,6 +1,10 @@
 <sdf version='1.7'>
   <model name='test2'>
 
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/test2</robotNamespace>
+    </plugin>
+
     <link name='base_link'>
       <inertial>
         <pose>0.075 -0 -0.0025 0 -0 0</pose>
@@ -27,7 +31,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>2 2 4</scale>
+            <scale>1 1 1</scale>
             <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
@@ -190,7 +194,7 @@
     <joint name='no_force3' type='revolute'>
       <pose relative_to='link3'>0.067254 -0.074006 0 0 -0 0</pose>
       <parent>link3</parent>
-      <child>link4</child>
+      <child>base_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -202,41 +206,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
       </axis>
-    </joint>
-
-    <link name='link4'>
-      <pose relative_to='no_force3'>0 0 0 0 -0 0</pose>
-      <inertial>
-        <pose>-0.075 -0 -0.0025 0 -0 0</pose>
-        <mass>0.0581718</mass>
-        <inertia>
-          <ixx>3.12909e-06</ixx>
-          <ixy>-2.32521e-20</ixy>
-          <ixz>2.2699e-24</ixz>
-          <iyy>0.000135512</iyy>
-          <iyz>-7.74793e-24</iyz>
-          <izz>0.000138398</izz>
-        </inertia>
-      </inertial>
-      <collision name='link4_collision'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='link4_visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    
+    </joint>    
   </model>
 </sdf>

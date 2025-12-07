@@ -1,0 +1,42 @@
+<robot name="test2_control">
+    <!-- 仅声明 link 名和 joint 名；不包含视觉几何 -->
+    <link name="base_link"/>
+    <link name="link1"/>
+    <link name="link2"/>
+    <link name="link3"/>
+
+    <joint name="force1" type="revolute">
+        <parent link="base_link"/>
+        <child link="link1"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="no_force1" type="revolute">
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="no_force2" type="revolute">
+        <parent link="link2"/>
+        <child link="link3"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="no_force3" type="revolute">
+        <parent link="link3"/>
+        <child link="base_link"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- 仅为要控制的关节添加 transmission，使用 VelocityJointInterface -->
+    <transmission name="force1_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="motor_force1">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="force1">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+</robot>

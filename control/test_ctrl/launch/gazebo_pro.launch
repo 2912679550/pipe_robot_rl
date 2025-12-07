@@ -1,0 +1,19 @@
+<launch>
+    <!-- 1) 把用于 ros_control 的 minimal URDF 加到 /robot_description -->
+    <param name="robot_description" textfile="$(find test_ctrl)/urdf/test2_control.urdf"/>
+
+    <!-- 2) 把 controllers.yaml 加载到 'test2' 命名空间，这样 spawner 在 /test2 下工作 -->
+    <rosparam file="$(find test_ctrl)/config/controllers.yaml" command="load" ns="test2"/>
+
+
+    <!-- 3) 启动 gazebo (gzserver + gzclient) -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+    <!-- 4) spawn SDF 模型（你保留 SDF 里有 gazebo_ros_control 插件） -->
+    <node name="spawn_test2" pkg="gazebo_ros" type="spawn_model" output="screen"
+            args="-file $(find test_ctrl)/../../models/test2/model_pro.sdf -sdf -model test2 -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0"/>
+
+    <!-- 5) 启动 controller spawner，放在 /test2 命名空间（与 SDF 中 plugin 的 robotNamespace 一致） -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" ns="test2"
+            args="joint_state_controller force1_velocity_controller"/>
+</launch>
