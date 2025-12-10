@@ -1,0 +1,9 @@
+joint_state_broadcaster:
+  ros__parameters:
+    update_rate: 50
+
+force1_velocity_controller:
+  ros__parameters:
+    type: velocity_controllers/JointVelocityController   # 发行版上实际名字以安装包为准
+    joint: force1
+    pid: {p: 100.0, i: 0.01, d: 10.0}

@@ -1,6 +1,32 @@
 <sdf version='1.7'>
   <model name='test2'>
 
+    <!-- Gazebo ROS2 Control插件（Foxy兼容版） -->
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <ros>
+        <namespace>/test2</namespace>
+      </ros>
+
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        <!-- 仅配置force1关节的速度控制接口 -->
+        <joint name="force1">
+          <interface>velocity</interface>
+          <interface>position</interface>
+        </joint>
+        <joint name="no_force1"><interface>position</interface></joint>
+        <joint name="no_force2"><interface>position</interface></joint>
+        <joint name="no_force3"><interface>position</interface></joint>
+      </hardware>
+      <!-- 预加载速度控制器（Foxy兼容） -->
+      <controller_manager>
+        <controller name="force1_velocity_controller" type="velocity_controllers/JointVelocityController">
+          <param name="joint">force1</param>
+          <param name="interface_name">velocity</param>
+        </controller>
+      </controller_manager>
+    </plugin>
+
     <link name='base_link'>
       <inertial>
         <pose>0.075 -0 -0.0025 0 -0 0</pose>
@@ -19,7 +45,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/base_link.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -27,8 +53,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>2 2 4</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/base_link.STL</uri>
+            <scale>1 1 1</scale>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -70,7 +96,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link1.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -79,7 +105,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link1.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link1.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -121,7 +147,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link2.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -130,7 +156,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link2.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link2.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -172,7 +198,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link3.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -181,7 +207,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link3.STL</uri>
+            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/test_ctrl_ros2/models/test2/meshes/link3.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -190,7 +216,7 @@
     <joint name='no_force3' type='revolute'>
       <pose relative_to='link3'>0.067254 -0.074006 0 0 -0 0</pose>
       <parent>link3</parent>
-      <child>link4</child>
+      <child>base_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -202,41 +228,6 @@
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
       </axis>
-    </joint>
-
-    <link name='link4'>
-      <pose relative_to='no_force3'>0 0 0 0 -0 0</pose>
-      <inertial>
-        <pose>-0.075 -0 -0.0025 0 -0 0</pose>
-        <mass>0.0581718</mass>
-        <inertia>
-          <ixx>3.12909e-06</ixx>
-          <ixy>-2.32521e-20</ixy>
-          <ixz>2.2699e-24</ixz>
-          <iyy>0.000135512</iyy>
-          <iyz>-7.74793e-24</iyz>
-          <izz>0.000138398</izz>
-        </inertia>
-      </inertial>
-      <collision name='link4_collision'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='link4_visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/models/test2/meshes/link4.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    
+    </joint>    
   </model>
 </sdf>

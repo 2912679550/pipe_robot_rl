@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="test2">
+  <!-- minimal links (no visuals/meshes) -->
+  <link name="base_link"/>
+  <link name="link1"/>
+  <link name="link2"/>
+  <link name="link3"/>
+
+  <!-- joints: names must match your SDF -->
+  <joint name="force1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="no_force1" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="no_force2" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="no_force3" type="revolute">
+    <parent link="link3"/>
+    <child link="base_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Transmission for force1: Velocity interface (required by JointVelocityController) -->
+  <transmission name="force1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor_force1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="force1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+</robot>
