@@ -2,30 +2,28 @@
   <model name='test2'>
 
     <!-- Gazebo ROS2 Control插件（Foxy兼容版） -->
+    <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
       <ros>
         <namespace>/test2</namespace>
       </ros>
+      <parameters>$(find test_ctrl_ros2)/config/controllers.yaml</parameters>
 
       <hardware>
+        <!-- 用于配置驱动库的名称 -->
         <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         <!-- 仅配置force1关节的速度控制接口 -->
         <joint name="force1">
           <interface>velocity</interface>
           <interface>position</interface>
         </joint>
-        <joint name="no_force1"><interface>position</interface></joint>
+        <joint name="no_force1">
+            <interface>position</interface></joint>
         <joint name="no_force2"><interface>position</interface></joint>
         <joint name="no_force3"><interface>position</interface></joint>
       </hardware>
-      <!-- 预加载速度控制器（Foxy兼容） -->
-      <controller_manager>
-        <controller name="force1_velocity_controller" type="velocity_controllers/JointVelocityController">
-          <param name="joint">force1</param>
-          <param name="interface_name">velocity</param>
-        </controller>
-      </controller_manager>
     </plugin>
+    </gazebo>
 
     <link name='base_link'>
       <inertial>

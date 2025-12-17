@@ -34,9 +34,38 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# 安装launch文件
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}/)
+## 安装 launch 文件及其它运行时资源（仅当存在时）
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/launch")
+  install(DIRECTORY
+    launch
+    DESTINATION share/${PROJECT_NAME}/)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/config")
+  install(DIRECTORY
+    config
+    DESTINATION share/${PROJECT_NAME}/)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/urdf")
+  install(DIRECTORY
+    urdf
+    DESTINATION share/${PROJECT_NAME}/)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/models")
+  install(DIRECTORY
+    models
+    DESTINATION share/${PROJECT_NAME}/)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/scripts")
+  # install executable python scripts into lib/<pkg>
+  file(GLOB scripts_to_install "${CMAKE_CURRENT_SOURCE_DIR}/scripts/*")
+  if(scripts_to_install)
+    install(PROGRAMS ${scripts_to_install}
+      DESTINATION lib/${PROJECT_NAME})
+  endif()
+endif()
 
 ament_package()

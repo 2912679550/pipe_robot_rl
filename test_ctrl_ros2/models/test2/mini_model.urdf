@@ -11,24 +11,28 @@
     <parent link="base_link"/>
     <child link="link1"/>
     <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
   </joint>
 
   <joint name="no_force1" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
   </joint>
 
   <joint name="no_force2" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
   </joint>
 
   <joint name="no_force3" type="revolute">
     <parent link="link3"/>
     <child link="base_link"/>
     <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
   </joint>
 
   <!-- Transmission for force1: Velocity interface (required by JointVelocityController) -->
@@ -41,4 +45,28 @@
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
+
+  <!-- ros2_control tag: minimal system pointing to Gazebo system plugin. -->
+  <ros2_control name="test2_ros2_control" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="force1">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="no_force1">
+      <state_interface name="position"/>
+    </joint>
+    <joint name="no_force2">
+      <state_interface name="position"/>
+    </joint>
+    <joint name="no_force3">
+      <state_interface name="position"/>
+    </joint>
+  </ros2_control>
 </robot>
