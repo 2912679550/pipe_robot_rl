@@ -1,72 +1,83 @@
 <?xml version="1.0"?>
 <robot name="test2">
-  <!-- minimal links (no visuals/meshes) -->
-  <link name="base_link"/>
-  <link name="link1"/>
-  <link name="link2"/>
-  <link name="link3"/>
+    <!-- minimal links (no visuals/meshes) -->
+    <link name="base_link" />
+    <link name="link1" />
+    <link name="link2" />
+    <link name="link3" />
 
-  <!-- joints: names must match your SDF -->
-  <joint name="force1" type="revolute">
-    <parent link="base_link"/>
-    <child link="link1"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
-  </joint>
-
-  <joint name="no_force1" type="revolute">
-    <parent link="link1"/>
-    <child link="link2"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
-  </joint>
-
-  <joint name="no_force2" type="revolute">
-    <parent link="link2"/>
-    <child link="link3"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
-  </joint>
-
-  <joint name="no_force3" type="revolute">
-    <parent link="link3"/>
-    <child link="base_link"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0"/>
-  </joint>
-
-  <!-- Transmission for force1: Velocity interface (required by JointVelocityController) -->
-  <transmission name="force1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="motor_force1">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="force1">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <!-- joints: names must match your SDF -->
+    <joint name="force1" type="revolute">
+        <parent link="base_link" />
+        <child link="link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
-  </transmission>
 
-  <!-- ros2_control tag: minimal system pointing to Gazebo system plugin. -->
-  <ros2_control name="test2_ros2_control" type="system">
-    <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-    </hardware>
-    <joint name="force1">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
+    <joint name="no_force1" type="revolute">
+        <parent link="link1" />
+        <child link="link2" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
-    <joint name="no_force1">
-      <state_interface name="position"/>
+
+    <joint name="no_force2" type="revolute">
+        <parent link="link2" />
+        <child link="link3" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
-    <joint name="no_force2">
-      <state_interface name="position"/>
+
+    <!-- 添加一个虚拟连杆，用于断开闭链 -->
+    <link name="link_dummy" />
+    <!-- 恢复 no_force3，但连接到 dummy link -->
+    <joint name="no_force3" type="revolute">
+        <parent link="link3" />
+        <child link="link_dummy" /> <!-- 修改这里，原为 base_link -->
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
-    <joint name="no_force3">
-      <state_interface name="position"/>
-    </joint>
-  </ros2_control>
+
+    <!-- <joint name="no_force3" type="revolute">
+        <parent link="link3" />
+        <child link="base_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
+    </joint> -->
+
+    <!-- Transmission for force1: Velocity interface (required by JointVelocityController) -->
+    <transmission name="force1_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="motor_force1">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="force1">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <!-- ros2_control tag: minimal system pointing to Gazebo system plugin. -->
+    <ros2_control name="test2_ros2_control" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="force1">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="no_force1">
+            <state_interface name="position" />
+        </joint>
+        <joint name="no_force2">
+            <state_interface name="position" />
+        </joint>
+        <!-- 现在可以安全地加回 no_force3 了 -->
+        <joint name="no_force3">
+            <state_interface name="position" />
+        </joint>
+    </ros2_control>
 </robot>

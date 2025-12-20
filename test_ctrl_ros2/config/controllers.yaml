@@ -8,13 +8,14 @@ controller_manager:
             use_sim_time: true
         # 注册速度控制器
         force1_velocity_controller:
-            type: velocity_controllers/JointVelocityController
+            type: velocity_controllers/JointGroupVelocityController
 
-# 配置速度控制器参数
+        # 配置速度控制器参数
 force1_velocity_controller:
     ros__parameters:
-        type: velocity_controllers/JointVelocityController
-        joint: force1
+        type: velocity_controllers/JointGroupVelocityController
+        joints: 
+            - force1
         pid:
             p: 100.0
             i: 0.01

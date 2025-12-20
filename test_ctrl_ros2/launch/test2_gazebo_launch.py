@@ -1,29 +1,46 @@
+# 先导入必要的包
 import os
 import launch
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, ExecuteProcess
+from launch.actions import IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # todo 1 . 使用 package share 目录构建模型、URDF 和 controllers 路径
-    pkg_share = get_package_share_directory('test_ctrl_ros2')
+    # ===== 基础路径配置 =====
+    pkg_share = get_package_share_directory("test_ctrl_ros2")
     model_path = os.path.join(pkg_share, 'models', 'test2', 'model_pro.sdf')
-    # empty_world_path = os.path.join('/usr', 'share', 'gazebo-11', 'worlds', 'empty.world')
     urdf_path = os.path.join(pkg_share, 'models', 'test2', 'mini_model.urdf')
-    controllers_yaml = os.path.join(pkg_share, 'config', 'controllers.yaml')
+    empty_world_path = "/usr/share/gazebo-11/worlds/empty.world"
 
-    
-    #todo  2 . 包含 gazebo 启动（不显式指定 world，使用默认）
-    # IncludeLaunchDescription 用于包含其他 launch 文件
+    # 读取URDF内容（作为robot_description参数，Gazebo和controller_manager都需要）
+    with open(urdf_path, 'r') as f:
+        robot_description_content = f.read()
+
+    # todo ===== 1. 启动Gazebo（指定空世界绝对路径） =====
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
         ),
+        launch_arguments={
+            'world': empty_world_path,
+            'verbose': 'true'
+        }.items()
     )
 
-    # todo 3. 加载SDF模型到Gazebo
+    # todo ===== 2. 启动机器人状态发布器（带/test2命名空间） =====
+    state_publisher_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        parameters=[
+            {'robot_description': robot_description_content},
+            {'use_sim_time': True}
+        ],
+        output='screen'
+    )
+
+    # todo ===== 3. 加载Gazebo模型  =====
     spawn_model = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',  # Foxy中是spawn_entity.py（和Humble一致）
@@ -36,66 +53,26 @@ def generate_launch_description():
         output='screen'
     )
 
-    # 启动 ros2_control 的 controller manager 节点（传入 controllers yaml 和 robot_description）
-    # 读取 URDF 文本（必须把 URDF 的文本传给 robot_description）
-    with open(urdf_path, 'r') as f:
-        robot_description = f.read()
-        
-    # todo 3.5 测试： 状态发布器
-    # state_publisher_node = Node(
-    #     package= 'robot_state_publisher',
-    #     executable= 'robot_state_publisher',
-    #     parameters= [{'robot_description': robot_description}],
-    #     output= 'screen',
-    #     namespace= '/test2'
-    # )
-        
-    #todo 4. 启动控制器管理器
-    controller_manager = Node(
+    # todo ===== 4. spawner控制器到gazebo中 =====
+    load_joint_state_broadcaster = Node(
         package='controller_manager',
-        executable='ros2_control_node',
-        parameters=[controllers_yaml, {'robot_description': robot_description, 'use_sim_time': True}],
-        output='screen',
-        namespace='/test2'
-    )
-    
-    #todo  5. CLI: 先 configure 再 start（Foxy 的 --set-state 可选 configure/start）
-    load_configure = ExecuteProcess(
-        cmd=[   'ros2', 'control', 
-                'load_controller', 
-                '--set-state', 'configure', 
-                'force1_velocity_controller'
-            ],
+        executable='spawner.py',
+        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
         output='screen'
     )
-    load_start = ExecuteProcess(
-        cmd=[   'ros2', 'control', 
-                'load_controller', 
-                '--set-state', 'start', 
-                'force1_velocity_controller'
-            ],
+    load_force1_controller = Node(
+        package='controller_manager',
+        executable='spawner.py',
+        arguments=['force1_velocity_controller', '--controller-manager', '/controller_manager'],
         output='screen'
     )
 
+    # todo ===== 5. 启动顺序（关键：先启动gazebo→导入模型→延迟启动spawner，确保插件连接） =====
     return LaunchDescription([
         gazebo_launch,
+        state_publisher_node,
         spawn_model,
-        # 等待spawn结束后再启动controller
-        launch.actions.RegisterEventHandler(
-            event_handler=launch.event_handlers.OnProcessExit(
-                target_action=spawn_model,
-                on_exit=[   
-                            controller_manager , 
-                            load_configure
-                        ],
-            )
-        ),
-        # 事件触发动作， 等待配置完成后再启动执行
-        launch.actions.RegisterEventHandler(
-            event_handler=launch.event_handlers.OnProcessExit(
-                target_action=load_configure,
-                on_exit=[load_start],
-            )
-        ),
-        # load_start ,
+        # 等待延迟启动
+        TimerAction(period=2.0, actions=[load_joint_state_broadcaster]),
+        TimerAction(period=3.0, actions=[load_force1_controller])
     ])
