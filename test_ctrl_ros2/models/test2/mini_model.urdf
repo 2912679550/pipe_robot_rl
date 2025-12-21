@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <robot name="test2">
-    <!-- minimal links (no visuals/meshes) -->
+    <!-- 1. Link List (RSP only needs names) -->
     <link name="base_link" />
     <link name="link1" />
     <link name="link2" />
     <link name="link3" />
+    <link name="link_dummy" /> <!-- Dummy link for breaking the closed loop -->
 
-    <!-- joints: names must match your SDF -->
+    <!-- 2. Joint Definitions (RSP needs accurate parent/child and relative pose) -->
     <joint name="force1" type="revolute">
         <parent link="base_link" />
         <child link="link1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <axis xyz="0 0 1" />
         <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
@@ -17,6 +19,8 @@
     <joint name="no_force1" type="revolute">
         <parent link="link1" />
         <child link="link2" />
+        <!-- Source: SDF no_force1 pose -->
+        <origin xyz="0.01109 0.038432 0" rpy="0 0 0" />
         <axis xyz="0 0 1" />
         <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
@@ -24,16 +28,18 @@
     <joint name="no_force2" type="revolute">
         <parent link="link2" />
         <child link="link3" />
+        <!-- Source: SDF no_force2 pose -->
+        <origin xyz="0.071655 0.035574 0" rpy="0 0 0" />
         <axis xyz="0 0 1" />
         <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
 
-    <!-- 添加一个虚拟连杆，用于断开闭链 -->
-    <link name="link_dummy" />
-    <!-- 恢复 no_force3，但连接到 dummy link -->
+    <!-- 3. Closed Loop Handling (Connect to dummy link) -->
     <joint name="no_force3" type="revolute">
         <parent link="link3" />
-        <child link="link_dummy" /> <!-- 修改这里，原为 base_link -->
+        <child link="link_dummy" />
+        <!-- Source: SDF no_force3 pose -->
+        <origin xyz="0.067254 -0.074006 0" rpy="0 0 0" />
         <axis xyz="0 0 1" />
         <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint>
@@ -45,18 +51,7 @@
         <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="10.0" />
     </joint> -->
 
-    <!-- Transmission for force1: Velocity interface (required by JointVelocityController) -->
-    <transmission name="force1_trans">
-        <type>transmission_interface/SimpleTransmission</type>
-        <actuator name="motor_force1">
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-        <joint name="force1">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-    </transmission>
-
-    <!-- ros2_control tag: minimal system pointing to Gazebo system plugin. -->
+    <!-- 4. ROS 2 Control Config (Required for Foxy) -->
     <ros2_control name="test2_ros2_control" type="system">
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -75,7 +70,6 @@
         <joint name="no_force2">
             <state_interface name="position" />
         </joint>
-        <!-- 现在可以安全地加回 no_force3 了 -->
         <joint name="no_force3">
             <state_interface name="position" />
         </joint>

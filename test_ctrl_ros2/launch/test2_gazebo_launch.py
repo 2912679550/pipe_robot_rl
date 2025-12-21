@@ -29,7 +29,7 @@ def generate_launch_description():
         }.items()
     )
 
-    # todo ===== 2. 启动机器人状态发布器（带/test2命名空间） =====
+    # todo ===== 2. 启动机器人状态发布器 =====
     state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
