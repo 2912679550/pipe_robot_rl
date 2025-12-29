@@ -1,0 +1,2495 @@
+<sdf version='1.7'>
+    <model name='pipe_robot'>
+
+        <!-- 暂时固定BM_01_link -->
+        <joint name="world_fixed" type="fixed">
+            <parent>world</parent>
+            <child>BM_01_link</child>
+        </joint>
+
+        <link name='BM_01_link'>
+            <inertial>
+                <pose>-0.00528 -0.002238 0.050888 0 -0 0</pose>
+                <mass>1.03287</mass>
+                <inertia>
+                    <ixx>0.00170464</ixx>
+                    <ixy>-4.09625e-06</ixy>
+                    <ixz>-1.87996e-05</ixz>
+                    <iyy>0.00213833</iyy>
+                    <iyz>0.000100159</iyz>
+                    <izz>0.00260798</izz>
+                </inertia>
+            </inertial>
+            <collision name='BM_01_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_01_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <collision name='BM_01_link_fixed_joint_lump__BM_02_link_cam_collision_1'>
+                <pose>0 -0.048 0.09689 1.5708 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_02_link_cam.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <collision name='BM_01_link_fixed_joint_lump__BM_03_link_imu_collision_2'>
+                <pose>-0.083 -0.001662 0.046956 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_03_link_imu.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BM_01_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_01_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name='BM_01_link_fixed_joint_lump__BM_02_link_cam_visual_1'>
+                <pose>0 -0.048 0.09689 1.5708 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_02_link_cam.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name='BM_01_link_fixed_joint_lump__BM_03_link_imu_visual_2'>
+                <pose>-0.083 -0.001662 0.046956 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_03_link_imu.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_01_04_LF' type='prismatic'>
+            <pose relative_to='BM_01_link'>0 0 0.1005 0 -0 1.5708</pose>
+            <parent>BM_01_link</parent>
+            <child>BM_04_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BM_04_link'>
+            <pose relative_to='joint_01_04_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0 -5.2e-05 0.048612 0 -0 0</pose>
+                <mass>0.233766</mass>
+                <inertia>
+                    <ixx>0.00153139</ixx>
+                    <ixy>-1.066e-17</ixy>
+                    <ixz>4.73524e-16</ixz>
+                    <iyy>2.36853e-05</iyy>
+                    <iyz>7.53262e-08</iyz>
+                    <izz>0.00153982</izz>
+                </inertia>
+            </inertial>
+            <collision name='BM_04_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_04_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BM_04_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_04_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_04_10_RN' type='revolute'>
+            <pose relative_to='BM_04_link'>0.0002 0.138 0.045514 3.14159 -1.5708 0</pose>
+            <parent>BM_04_link</parent>
+            <child>BL_10_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_10_link'>
+            <pose relative_to='joint_04_10_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.028467 0.003913 0.000232 0 -0 0</pose>
+                <mass>0.111029</mass>
+                <inertia>
+                    <ixx>5.50566e-05</ixx>
+                    <ixy>4.78505e-06</ixy>
+                    <ixz>7.89636e-13</ixz>
+                    <iyy>8.89406e-05</iyy>
+                    <iyz>-3.71383e-12</iyz>
+                    <izz>3.82868e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_10_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_10_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_10_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_10_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_10_12_LF' type='prismatic'>
+            <pose relative_to='BL_10_link'>-0.064384 0.00893 0.0217 -0.137823 -1.5708 0</pose>
+            <parent>BL_10_link</parent>
+            <child>BL_12_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_12_link'>
+            <pose relative_to='joint_10_12_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.0215 6e-06 0.042631 0 -0 0</pose>
+                <mass>0.311423</mass>
+                <inertia>
+                    <ixx>0.000110109</ixx>
+                    <ixy>2.16564e-12</ixy>
+                    <ixz>-2.88509e-07</ixz>
+                    <iyy>0.000143637</iyy>
+                    <iyz>-6.02661e-08</iyz>
+                    <izz>4.76617e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_12_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_12_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_12_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_12_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_12_05_RN' type='revolute'>
+            <pose relative_to='BL_12_link'>0.006 0 0.103 1.5708 1.43297 1.5708</pose>
+            <parent>BL_12_link</parent>
+            <child>BL_05_link_copy1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_05_link_copy1'>
+            <pose relative_to='joint_12_05_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.017054 0.01174 -0.027504 0 -0 0</pose>
+                <mass>0.443058</mass>
+                <inertia>
+                    <ixx>0.00119583</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000381642</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981413</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_05_link_copy1_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_05_link_copy1_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_04_11_RN' type='revolute'>
+            <pose relative_to='BM_04_link'>-0.0002 -0.138 0.045514 3.14159 -1.5708 0</pose>
+            <parent>BM_04_link</parent>
+            <child>BR_11_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_11_link'>
+            <pose relative_to='joint_04_11_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.028467 -0.003913 -0.000232 0 -0 0</pose>
+                <mass>0.111029</mass>
+                <inertia>
+                    <ixx>5.50566e-05</ixx>
+                    <ixy>-4.78505e-06</ixy>
+                    <ixz>-7.89636e-13</ixz>
+                    <iyy>8.89406e-05</iyy>
+                    <iyz>-3.71383e-12</iyz>
+                    <izz>3.82868e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_11_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_11_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_11_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_11_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_11_13_LF' type='prismatic'>
+            <pose relative_to='BR_11_link'>-0.064384 -0.00893 0.0213 1.5708 -0 -1.43297</pose>
+            <parent>BR_11_link</parent>
+            <child>BR_13_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_13_link'>
+            <pose relative_to='joint_11_13_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>6e-06 -0.0215 0.042631 0 -0 0</pose>
+                <mass>0.311423</mass>
+                <inertia>
+                    <ixx>0.000143637</ixx>
+                    <ixy>-2.16564e-12</ixy>
+                    <ixz>-6.02661e-08</ixz>
+                    <iyy>0.000110109</iyy>
+                    <iyz>2.88509e-07</iyz>
+                    <izz>4.76617e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_13_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_13_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_13_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_13_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_13_06_RN' type='revolute'>
+            <pose relative_to='BR_13_link'>0 0.006 0.103 -1.5708 1.43297 0</pose>
+            <parent>BR_13_link</parent>
+            <child>BR_06_link_copy1</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_06_link_copy1'>
+            <pose relative_to='joint_13_06_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.017054 -0.01174 -0.027496 0 -0 0</pose>
+                <mass>0.443058</mass>
+                <inertia>
+                    <ixx>0.00119583</ixx>
+                    <ixy>-0.000263848</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.000381642</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981413</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_06_link_copy1_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_06_link_copy1_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_01_05_RN' type='revolute'>
+            <pose relative_to='BM_01_link'>-0.065 -0.0625 -0.005 1.5708 -1.5708 0</pose>
+            <parent>BM_01_link</parent>
+            <child>BL_05_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_05_link'>
+            <pose relative_to='joint_01_05_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.033237 0.1108 -0.062418 0 -0 0</pose>
+                <mass>0.455666</mass>
+                <inertia>
+                    <ixx>0.00119742</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000383223</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981383</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_05_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_05_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_05_14_RF' type='revolute'>
+            <pose relative_to='BL_05_link'>-0.059864 0.20233 -0.0625 -3.14159 0 0</pose>
+            <parent>BL_05_link</parent>
+            <child>BL_14_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_14_link'>
+            <pose relative_to='joint_05_14_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.056854 0.066316 -9e-06 0 -0 0</pose>
+                <mass>0.383976</mass>
+                <inertia>
+                    <ixx>0.000350598</ixx>
+                    <ixy>0.000166488</ixy>
+                    <ixz>1.1141e-08</ixz>
+                    <iyy>0.000285374</iyy>
+                    <iyz>-2.13463e-08</iyz>
+                    <izz>0.000364473</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_14_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_14_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_14_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_14_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_14_16_RN' type='revolute'>
+            <pose relative_to='BL_14_link'>-0.099691 0.114079 -0.0265 3.14159 -0 0</pose>
+            <parent>BL_14_link</parent>
+            <child>BL_16_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_16_link'>
+            <pose relative_to='joint_14_16_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.023692 -0.01741 -0.023488 0 -0 0</pose>
+                <mass>0.105544</mass>
+                <inertia>
+                    <ixx>6.88083e-05</ixx>
+                    <ixy>-2.10904e-05</ixy>
+                    <ixz>5.4875e-06</ixz>
+                    <iyy>0.000104032</iyy>
+                    <iyz>2.64482e-06</iyz>
+                    <izz>6.2391e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_16_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_16_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_16_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_16_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_16_18_RN' type='revolute'>
+            <pose relative_to='BL_16_link'>0.004329 -0.036746 0.0164 0 -0 0</pose>
+            <parent>BL_16_link</parent>
+            <child>BL_18_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_18_link'>
+            <pose relative_to='joint_16_18_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.051494 0.062525 -0.042962 0 -0 0</pose>
+                <mass>0.0214024</mass>
+                <inertia>
+                    <ixx>2.91483e-05</ixx>
+                    <ixy>-2.38984e-05</ixy>
+                    <ixz>-1.69777e-19</ixz>
+                    <iyy>1.98133e-05</iyy>
+                    <iyz>-2.06357e-19</iyz>
+                    <izz>4.89294e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_18_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_18_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_18_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_18_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_18_05_RN' type='revolute'>
+            <pose relative_to='BL_18_link'>0.102989 0.125049 0.0051 0 -0 0</pose>
+            <parent>BL_18_link</parent>
+            <child>BL_05_link_copy2</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_05_link_copy2'>
+            <pose relative_to='joint_18_05_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.019792 -0.068733 -0.048004 0 -0 0</pose>
+                <mass>0.443058</mass>
+                <inertia>
+                    <ixx>0.00119583</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000381642</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981413</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_05_link_copy2_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_05_link_copy2_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_05_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_16_20_RF' type='revolute'>
+            <pose relative_to='BL_16_link'>-0.038656 -0.025767 -0.0265 -1.5708 -0 0.447553</pose>
+            <parent>BL_16_link</parent>
+            <child>BL_20_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_20_link'>
+            <pose relative_to='joint_16_20_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.002485 2.2e-05 0.005912 0 -0 0</pose>
+                <mass>0.187849</mass>
+                <inertia>
+                    <ixx>7.15957e-05</ixx>
+                    <ixy>-1.89226e-08</ixy>
+                    <ixz>2.23762e-09</ixz>
+                    <iyy>6.67188e-05</iyy>
+                    <iyz>5.77589e-09</iyz>
+                    <izz>0.000124433</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_20_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_20_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_20_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_20_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_20_22_RF' type='revolute'>
+            <pose relative_to='BL_20_link'>0 0 -0.0165 1.5708 0 -1.5708</pose>
+            <parent>BL_20_link</parent>
+            <child>BL_22_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BL_22_link'>
+            <pose relative_to='joint_20_22_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0 0 0.001758 0 -0 0</pose>
+                <mass>0.120408</mass>
+                <inertia>
+                    <ixx>2.91261e-05</ixx>
+                    <ixy>-5.85599e-09</ixy>
+                    <ixz>-8.95896e-13</ixz>
+                    <iyy>2.91458e-05</iyy>
+                    <iyz>-3.2118e-13</iyz>
+                    <izz>4.08411e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BL_22_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_22_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BL_22_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BL_22_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_01_06_RN' type='revolute'>
+            <pose relative_to='BM_01_link'>0.065 -0.0625 -0.005 1.5708 -1.5708 0</pose>
+            <parent>BM_01_link</parent>
+            <child>BR_06_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_06_link'>
+            <pose relative_to='joint_01_06_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.033479 -0.111159 -0.062689 0 -0 0</pose>
+                <mass>0.454889</mass>
+                <inertia>
+                    <ixx>0.00119746</ixx>
+                    <ixy>-0.000263898</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.00038311</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981269</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_06_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_06_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_06_15_RF' type='revolute'>
+            <pose relative_to='BR_06_link'>-0.059864 -0.20233 -0.0625 0 -0 0</pose>
+            <parent>BR_06_link</parent>
+            <child>BR_15_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_15_link'>
+            <pose relative_to='joint_06_15_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.056893 0.066189 0.000158 0 -0 0</pose>
+                <mass>0.381734</mass>
+                <inertia>
+                    <ixx>0.000350527</ixx>
+                    <ixy>0.000166488</ixy>
+                    <ixz>1.11474e-08</ixz>
+                    <iyy>0.000285318</iyy>
+                    <iyz>-2.13544e-08</iyz>
+                    <izz>0.000364402</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_15_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_15_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_15_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_15_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_15_17_RN' type='revolute'>
+            <pose relative_to='BR_15_link'>-0.099691 0.114079 0.03775 0 -0 0</pose>
+            <parent>BR_15_link</parent>
+            <child>BR_17_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_17_link'>
+            <pose relative_to='joint_15_17_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.023461 0.017113 -0.039326 0 -0 0</pose>
+                <mass>0.108905</mass>
+                <inertia>
+                    <ixx>6.88741e-05</ixx>
+                    <ixy>2.10904e-05</ixy>
+                    <ixz>-5.4875e-06</ixz>
+                    <iyy>0.000104098</iyy>
+                    <iyz>2.64482e-06</iyz>
+                    <izz>6.24018e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_17_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_17_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_17_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_17_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_17_19_RN' type='revolute'>
+            <pose relative_to='BR_17_link'>0.004329 0.036746 0.005275 0 -0 0</pose>
+            <parent>BR_17_link</parent>
+            <child>BR_19_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_19_link'>
+            <pose relative_to='joint_17_19_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.051494 -0.062525 -0.042962 0 -0 0</pose>
+                <mass>0.0214024</mass>
+                <inertia>
+                    <ixx>2.91483e-05</ixx>
+                    <ixy>2.38984e-05</ixy>
+                    <ixz>-5.07872e-22</ixz>
+                    <iyy>1.98133e-05</iyy>
+                    <iyz>6.46553e-22</iyz>
+                    <izz>4.89294e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_19_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_19_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_19_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_19_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_19_06_RN' type='revolute'>
+            <pose relative_to='BR_19_link'>0.102989 -0.125049 0.004975 0 -0 0</pose>
+            <parent>BR_19_link</parent>
+            <child>BR_06_link_copy2</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_06_link_copy2'>
+            <pose relative_to='joint_19_06_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.019792 0.068733 -0.047996 0 -0 0</pose>
+                <mass>0.443058</mass>
+                <inertia>
+                    <ixx>0.00119583</ixx>
+                    <ixy>-0.000263848</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.000381642</iyy>
+                    <iyz>1.60312e-07</iyz>
+                    <izz>0.000981413</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_06_link_copy2_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_06_link_copy2_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_06_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_17_21_RF' type='revolute'>
+            <pose relative_to='BR_17_link'>-0.038656 0.025767 -0.03775 -1.5708 -0 2.69404</pose>
+            <parent>BR_17_link</parent>
+            <child>BR_21_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_21_link'>
+            <pose relative_to='joint_17_21_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.002485 -2.2e-05 0.005912 0 -0 0</pose>
+                <mass>0.187849</mass>
+                <inertia>
+                    <ixx>7.15957e-05</ixx>
+                    <ixy>-1.89226e-08</ixy>
+                    <ixz>-2.23762e-09</ixz>
+                    <iyy>6.67188e-05</iyy>
+                    <iyz>-5.77589e-09</iyz>
+                    <izz>0.000124433</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_21_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_21_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_21_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_21_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_21_23_RF' type='revolute'>
+            <pose relative_to='BR_21_link'>0 0 -0.0165 -1.5708 0 1.5708</pose>
+            <parent>BR_21_link</parent>
+            <child>BR_23_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BR_23_link'>
+            <pose relative_to='joint_21_23_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0 -0 -0.001758 0 -0 0</pose>
+                <mass>0.120408</mass>
+                <inertia>
+                    <ixx>2.91261e-05</ixx>
+                    <ixy>5.85599e-09</ixy>
+                    <ixz>8.95896e-13</ixz>
+                    <iyy>2.91458e-05</iyy>
+                    <iyz>-3.2118e-13</iyz>
+                    <izz>4.08411e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='BR_23_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_23_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BR_23_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BR_23_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_01_07_RF' type='revolute'>
+            <pose relative_to='BM_01_link'>0 0 0 0 -0 0</pose>
+            <parent>BM_01_link</parent>
+            <child>BM_07_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BM_07_link'>
+            <pose relative_to='joint_01_07_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.003842 0.002939 0.007018 0 -0 0</pose>
+                <mass>0.567417</mass>
+                <inertia>
+                    <ixx>0.00049465</ixx>
+                    <ixy>-4.63867e-07</ixy>
+                    <ixz>3.57903e-07</ixz>
+                    <iyy>0.000471569</iyy>
+                    <iyz>-4.38172e-06</iyz>
+                    <izz>0.000888719</izz>
+                </inertia>
+            </inertial>
+            <collision name='BM_07_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_07_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BM_07_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_07_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_07_08_RF' type='revolute'>
+            <pose relative_to='BM_07_link'>0 0 0.019 3.14159 -1.5708 0</pose>
+            <parent>BM_07_link</parent>
+            <child>BM_08_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BM_08_link'>
+            <pose relative_to='joint_07_08_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>4.4e-05 0 0.001428 0 -0 0</pose>
+                <mass>0.342847</mass>
+                <inertia>
+                    <ixx>0.000247216</ixx>
+                    <ixy>-5.24223e-13</ixy>
+                    <ixz>3.36734e-08</ixz>
+                    <iyy>0.000245635</iyy>
+                    <iyz>-1.98406e-13</iyz>
+                    <izz>0.000455312</izz>
+                </inertia>
+            </inertial>
+            <collision name='BM_08_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_08_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BM_08_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_08_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_01_09_RF' type='revolute'>
+            <pose relative_to='BM_01_link'>0.07 0.062 0.084 3.14159 1.57079 3.14159</pose>
+            <parent>BM_01_link</parent>
+            <child>BM_09_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='BM_09_link'>
+            <pose relative_to='joint_01_09_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.01077 0.108812 -0.070012 0 -0 0</pose>
+                <mass>1.27086</mass>
+                <inertia>
+                    <ixx>0.00511638</ixx>
+                    <ixy>-4.15687e-07</ixy>
+                    <ixz>4.4242e-07</ixz>
+                    <iyy>0.00212774</iyy>
+                    <iyz>-1.60448e-08</iyz>
+                    <izz>0.00323087</izz>
+                </inertia>
+            </inertial>
+            <collision name='BM_09_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_09_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='BM_09_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/BM_09_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_09_24_RF' type='revolute'>
+            <pose relative_to='BM_09_link'>0 0.27 0 0 -0 0</pose>
+            <parent>BM_09_link</parent>
+            <child>FM_24_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FM_24_link'>
+            <pose relative_to='joint_09_24_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.033701 0.062978 -0.064469 0 -0 0</pose>
+                <mass>1.01916</mass>
+                <inertia>
+                    <ixx>0.00250465</ixx>
+                    <ixy>2.56895e-05</ixy>
+                    <ixz>-2.2133e-05</ixz>
+                    <iyy>0.00208941</iyy>
+                    <iyz>-2.94079e-05</iyz>
+                    <izz>0.00155734</izz>
+                </inertia>
+            </inertial>
+            <collision name='FM_24_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_24_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <collision name='FM_24_link_fixed_joint_lump__FM_25_link_cam_collision_1'>
+                <pose>-0.01289 0.11 -0.07 1.5708 1.5708 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_25_link_cam.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <collision name='FM_24_link_fixed_joint_lump__FM_26_link_imu_collision_2'>
+                <pose>0.037044 0.063662 0.013 3.14159 -1.5708 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_26_link_imu.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FM_24_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_24_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name='FM_24_link_fixed_joint_lump__FM_25_link_cam_visual_1'>
+                <pose>-0.01289 0.11 -0.07 1.5708 1.5708 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_25_link_cam.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name='FM_24_link_fixed_joint_lump__FM_26_link_imu_visual_2'>
+                <pose>0.037044 0.063662 0.013 3.14159 -1.5708 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_26_link_imu.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_24_27_LF' type='prismatic'>
+            <pose relative_to='FM_24_link'>-0.0165 0.062 -0.07 -1.5708 0 1.5708</pose>
+            <parent>FM_24_link</parent>
+            <child>FM_27_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FM_27_link'>
+            <pose relative_to='joint_24_27_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0 5.2e-05 0.048612 0 -0 0</pose>
+                <mass>0.233766</mass>
+                <inertia>
+                    <ixx>0.00153139</ixx>
+                    <ixy>-1.11702e-17</ixy>
+                    <ixz>-4.73531e-16</ixz>
+                    <iyy>2.36853e-05</iyy>
+                    <iyz>-7.53262e-08</iyz>
+                    <izz>0.00153982</izz>
+                </inertia>
+            </inertial>
+            <collision name='FM_27_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_27_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FM_27_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_27_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_27_32_RN' type='revolute'>
+            <pose relative_to='FM_27_link'>0.0002 0.138 0.045514 0 -1.5708 0</pose>
+            <parent>FM_27_link</parent>
+            <child>FL_32_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_32_link'>
+            <pose relative_to='joint_27_32_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.028467 -0.003913 -0.000232 0 -0 0</pose>
+                <mass>0.111029</mass>
+                <inertia>
+                    <ixx>5.50566e-05</ixx>
+                    <ixy>-4.78505e-06</ixy>
+                    <ixz>-7.89636e-13</ixz>
+                    <iyy>8.89406e-05</iyy>
+                    <iyz>-3.71383e-12</iyz>
+                    <izz>3.82868e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_32_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_32_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_32_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_32_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_32_34_LF' type='prismatic'>
+            <pose relative_to='FL_32_link'>-0.064384 -0.00893 0.0213 3.00377 1.5708 0</pose>
+            <parent>FL_32_link</parent>
+            <child>FL_34_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_34_link'>
+            <pose relative_to='joint_32_34_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.0215 6e-06 0.042631 0 -0 0</pose>
+                <mass>0.311423</mass>
+                <inertia>
+                    <ixx>0.000110109</ixx>
+                    <ixy>2.16564e-12</ixy>
+                    <ixz>-2.88509e-07</ixz>
+                    <iyy>0.000143637</iyy>
+                    <iyz>-6.02661e-08</iyz>
+                    <izz>4.76617e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_34_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_34_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_34_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_34_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_34_28_RN' type='revolute'>
+            <pose relative_to='FL_34_link'>-0.006 0 0.103 1.5708 -1.43297 -1.5708</pose>
+            <parent>FL_34_link</parent>
+            <child>FL_28_link_copy1</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_28_link_copy1'>
+            <pose relative_to='joint_34_28_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.017948 0.014826 -0.027496 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>-0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_28_link_copy1_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_28_link_copy1_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_27_33_RN' type='revolute'>
+            <pose relative_to='FM_27_link'>0.0002 -0.138 0.045514 0 1.5708 0</pose>
+            <parent>FM_27_link</parent>
+            <child>FR_33_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_33_link'>
+            <pose relative_to='joint_27_33_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.028467 -0.003913 -0.000168 0 -0 0</pose>
+                <mass>0.111029</mass>
+                <inertia>
+                    <ixx>5.50566e-05</ixx>
+                    <ixy>4.78505e-06</ixy>
+                    <ixz>-7.89636e-13</ixz>
+                    <iyy>8.89406e-05</iyy>
+                    <iyz>3.71383e-12</iyz>
+                    <izz>3.82868e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_33_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_33_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_33_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_33_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_33_35_LF' type='prismatic'>
+            <pose relative_to='FR_33_link'>0.064384 -0.00893 0.0213 0.137823 1.5708 0</pose>
+            <parent>FR_33_link</parent>
+            <child>FR_35_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>0</lower>
+                    <upper>0</upper>
+                    <effort>0</effort>
+                    <velocity>0</velocity>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_35_link'>
+            <pose relative_to='joint_33_35_LF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.0215 -6e-06 0.042631 0 -0 0</pose>
+                <mass>0.311423</mass>
+                <inertia>
+                    <ixx>0.000110109</ixx>
+                    <ixy>2.16564e-12</ixy>
+                    <ixz>2.88509e-07</ixz>
+                    <iyy>0.000143637</iyy>
+                    <iyz>6.02661e-08</iyz>
+                    <izz>4.76617e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_35_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_35_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_35_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_35_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_35_29_RN' type='revolute'>
+            <pose relative_to='FR_35_link'>-0.006 0 0.103 -1.5708 -1.43297 1.5708</pose>
+            <parent>FR_35_link</parent>
+            <child>FR_29_link_copy1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_29_link_copy1'>
+            <pose relative_to='joint_35_29_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.017948 -0.014826 -0.027504 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_29_link_copy1_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_29_link_copy1_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link_copy1.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_24_28_RN' type='revolute'>
+            <pose relative_to='FM_24_link'>0.089 0.1245 -0.135 -1.5708 0 0</pose>
+            <parent>FM_24_link</parent>
+            <child>FL_28_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_28_link'>
+            <pose relative_to='joint_24_28_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.03334 0.110907 -0.062496 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>-0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_28_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_28_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_28_36_RF' type='revolute'>
+            <pose relative_to='FL_28_link'>0.059864 0.20233 -0.0625 0 -0 0</pose>
+            <parent>FL_28_link</parent>
+            <child>FL_36_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_36_link'>
+            <pose relative_to='joint_28_36_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.056854 -0.066316 -9e-06 0 -0 0</pose>
+                <mass>0.383976</mass>
+                <inertia>
+                    <ixx>0.000350598</ixx>
+                    <ixy>0.000166488</ixy>
+                    <ixz>-1.11474e-08</ixz>
+                    <iyy>0.000285374</iyy>
+                    <iyz>2.13544e-08</iyz>
+                    <izz>0.000364473</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_36_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_36_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_36_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_36_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_36_38_RN' type='revolute'>
+            <pose relative_to='FL_36_link'>0.099691 -0.114079 0.0265 0 -0 0</pose>
+            <parent>FL_36_link</parent>
+            <child>FL_38_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_38_link'>
+            <pose relative_to='joint_36_38_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.023461 -0.017113 -0.028076 0 -0 0</pose>
+                <mass>0.108905</mass>
+                <inertia>
+                    <ixx>6.88741e-05</ixx>
+                    <ixy>2.10904e-05</ixy>
+                    <ixz>5.4875e-06</ixz>
+                    <iyy>0.000104098</iyy>
+                    <iyz>-2.64482e-06</iyz>
+                    <izz>6.24018e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_38_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_38_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_38_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_38_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_38_40_RN' type='revolute'>
+            <pose relative_to='FL_38_link'>-0.004329 -0.036746 0.016525 0 -0 0</pose>
+            <parent>FL_38_link</parent>
+            <child>FL_40_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_40_link'>
+            <pose relative_to='joint_38_40_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.051494 0.062525 -0.042962 0 -0 0</pose>
+                <mass>0.0214024</mass>
+                <inertia>
+                    <ixx>2.91483e-05</ixx>
+                    <ixy>2.38984e-05</ixy>
+                    <ixz>-2.11284e-21</ixz>
+                    <iyy>1.98133e-05</iyy>
+                    <iyz>2.65308e-21</iyz>
+                    <izz>4.89294e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_40_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_40_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_40_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_40_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_40_28_RN' type='revolute'>
+            <pose relative_to='FL_40_link'>-0.102989 0.125049 0.004975 0 -0 0</pose>
+            <parent>FL_40_link</parent>
+            <child>FL_28_link_copy2</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_28_link_copy2'>
+            <pose relative_to='joint_40_28_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.018898 -0.065647 -0.047996 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>-0.000263848</ixy>
+                    <ixz>-5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_28_link_copy2_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_28_link_copy2_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_28_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_38_42_RF' type='revolute'>
+            <pose relative_to='FL_38_link'>0.038656 -0.025767 -0.0265 1.5708 -0 2.69404</pose>
+            <parent>FL_38_link</parent>
+            <child>FL_42_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_42_link'>
+            <pose relative_to='joint_38_42_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.002485 2.2e-05 0.005912 0 -0 0</pose>
+                <mass>0.187849</mass>
+                <inertia>
+                    <ixx>7.15957e-05</ixx>
+                    <ixy>-1.89226e-08</ixy>
+                    <ixz>2.23762e-09</ixz>
+                    <iyy>6.67188e-05</iyy>
+                    <iyz>5.77589e-09</iyz>
+                    <izz>0.000124433</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_42_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_42_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_42_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_42_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_42_44_RF' type='revolute'>
+            <pose relative_to='FL_42_link'>0 0 -0.0165 1.5708 0 -1.5708</pose>
+            <parent>FL_42_link</parent>
+            <child>FL_44_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_44_link'>
+            <pose relative_to='joint_42_44_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0 0 0.001758 0 -0 0</pose>
+                <mass>0.120408</mass>
+                <inertia>
+                    <ixx>2.91261e-05</ixx>
+                    <ixy>-5.85599e-09</ixy>
+                    <ixz>-8.95896e-13</ixz>
+                    <iyy>2.91458e-05</iyy>
+                    <iyz>-3.2118e-13</iyz>
+                    <izz>4.08411e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_44_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_44_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_44_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_44_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_24_29_RN' type='revolute'>
+            <pose relative_to='FM_24_link'>0.089 0.1245 -0.005 -1.5708 0 0</pose>
+            <parent>FM_24_link</parent>
+            <child>FR_29_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_29_link'>
+            <pose relative_to='joint_24_29_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.03334 -0.110907 -0.062504 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_29_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_29_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_29_37_RF' type='revolute'>
+            <pose relative_to='FR_29_link'>0.059864 -0.20233 -0.0625 -3.14159 -0 3.14159</pose>
+            <parent>FR_29_link</parent>
+            <child>FR_37_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_37_link'>
+            <pose relative_to='joint_29_37_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.056854 0.066316 -9e-06 0 -0 0</pose>
+                <mass>0.383976</mass>
+                <inertia>
+                    <ixx>0.000350598</ixx>
+                    <ixy>0.000166488</ixy>
+                    <ixz>1.1141e-08</ixz>
+                    <iyy>0.000285374</iyy>
+                    <iyz>-2.13463e-08</iyz>
+                    <izz>0.000364473</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_37_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_37_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_37_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_37_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_37_39_RN' type='revolute'>
+            <pose relative_to='FR_37_link'>-0.099691 0.114079 -0.0265 3.14159 -0 3.14159</pose>
+            <parent>FR_37_link</parent>
+            <child>FR_39_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_39_link'>
+            <pose relative_to='joint_37_39_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.023461 0.017113 -0.024924 0 -0 0</pose>
+                <mass>0.108905</mass>
+                <inertia>
+                    <ixx>6.88741e-05</ixx>
+                    <ixy>-2.10904e-05</ixy>
+                    <ixz>-5.4875e-06</ixz>
+                    <iyy>0.000104098</iyy>
+                    <iyz>-2.64482e-06</iyz>
+                    <izz>6.24018e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_39_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_39_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_39_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_39_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_39_41_RN' type='revolute'>
+            <pose relative_to='FR_39_link'>-0.004329 0.036746 0.0164 0 -0 0</pose>
+            <parent>FR_39_link</parent>
+            <child>FR_41_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_41_link'>
+            <pose relative_to='joint_39_41_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.051494 -0.062525 -0.042962 0 -0 0</pose>
+                <mass>0.0214024</mass>
+                <inertia>
+                    <ixx>2.91483e-05</ixx>
+                    <ixy>-2.38984e-05</ixy>
+                    <ixz>-1.25327e-21</ixz>
+                    <iyy>1.98133e-05</iyy>
+                    <iyz>-1.18418e-21</iyz>
+                    <izz>4.89294e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_41_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_41_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_41_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_41_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_41_29_RN' type='revolute'>
+            <pose relative_to='FR_41_link'>-0.102989 -0.125049 0.0051 0 -0 0</pose>
+            <parent>FR_41_link</parent>
+            <child>FR_29_link_copy2</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_29_link_copy2'>
+            <pose relative_to='joint_41_29_RN'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.018898 0.065647 -0.048004 0 -0 0</pose>
+                <mass>0.458972</mass>
+                <inertia>
+                    <ixx>0.00119749</ixx>
+                    <ixy>0.000263848</ixy>
+                    <ixz>5.306e-08</ixz>
+                    <iyy>0.000383297</iyy>
+                    <iyz>-1.60312e-07</iyz>
+                    <izz>0.000981471</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_29_link_copy2_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_29_link_copy2_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_29_link_copy2.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_39_43_RF' type='revolute'>
+            <pose relative_to='FR_39_link'>0.038656 0.025767 -0.0265 1.5708 -0 0.447553</pose>
+            <parent>FR_39_link</parent>
+            <child>FR_43_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FR_43_link'>
+            <pose relative_to='joint_39_43_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0.002485 -2.2e-05 0.005912 0 -0 0</pose>
+                <mass>0.187849</mass>
+                <inertia>
+                    <ixx>7.15957e-05</ixx>
+                    <ixy>-1.89226e-08</ixy>
+                    <ixz>-2.23762e-09</ixz>
+                    <iyy>6.67188e-05</iyy>
+                    <iyz>-5.77589e-09</iyz>
+                    <izz>0.000124433</izz>
+                </inertia>
+            </inertial>
+            <collision name='FR_43_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_43_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FR_43_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FR_43_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_43_45_RF' type='revolute'>
+            <pose relative_to='FR_43_link'>0 0 -0.0165 -1.5708 0 1.5708</pose>
+            <parent>FR_43_link</parent>
+            <child>FL_45_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FL_45_link'>
+            <pose relative_to='joint_43_45_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>0 -0 -0.001758 0 -0 0</pose>
+                <mass>0.120408</mass>
+                <inertia>
+                    <ixx>2.91261e-05</ixx>
+                    <ixy>5.85599e-09</ixy>
+                    <ixz>8.95896e-13</ixz>
+                    <iyy>2.91458e-05</iyy>
+                    <iyz>-3.2118e-13</iyz>
+                    <izz>4.08411e-05</izz>
+                </inertia>
+            </inertial>
+            <collision name='FL_45_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_45_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FL_45_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FL_45_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_24_30_RF' type='revolute'>
+            <pose relative_to='FM_24_link'>0.084 0.062 -0.07 7e-06 -1.57079 -3.14159</pose>
+            <parent>FM_24_link</parent>
+            <child>FM_30_link</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FM_30_link'>
+            <pose relative_to='joint_24_30_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>-0.004155 -0.003228 0.008108 0 -0 0</pose>
+                <mass>0.54336</mass>
+                <inertia>
+                    <ixx>0.00045173</ixx>
+                    <ixy>4.6206e-07</ixy>
+                    <ixz>-3.5814e-07</ixz>
+                    <iyy>0.00042792</iyy>
+                    <iyz>4.3792e-06</iyz>
+                    <izz>0.00080222</izz>
+                </inertia>
+            </inertial>
+            <collision name='FM_30_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_30_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FM_30_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_30_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <joint name='joint_30_31_RF' type='revolute'>
+            <pose relative_to='FM_30_link'>0 0 0.019 7e-06 -1.57079 -3.14159</pose>
+            <parent>FM_30_link</parent>
+            <child>FM_31_link</child>
+            <axis>
+                <xyz>0 0 -1</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                </limit>
+                <dynamics>
+                    <spring_reference>0</spring_reference>
+                    <spring_stiffness>0</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+        <link name='FM_31_link'>
+            <pose relative_to='joint_30_31_RF'>0 0 0 0 -0 0</pose>
+            <inertial>
+                <pose>4.4e-05 -0 -0.001428 0 -0 0</pose>
+                <mass>0.34285</mass>
+                <inertia>
+                    <ixx>0.00024722</ixx>
+                    <ixy>5.2422e-13</ixy>
+                    <ixz>-3.3673e-08</ixz>
+                    <iyy>0.00024563</iyy>
+                    <iyz>-1.9841e-13</iyz>
+                    <izz>0.00045531</izz>
+                </inertia>
+            </inertial>
+            <collision name='FM_31_link_collision'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_31_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name='FM_31_link_visual'>
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>/home/vulcan/Acdimic/urdf_ws/src/pipe_robot/pipe_robot_ros2/models/pipe_robot/meshes/FM_31_link.STL</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <frame name='joint_01_02_FN' attached_to='BM_01_link'>
+            <pose>0 -0.048 0.09689 1.5708 -0 0</pose>
+        </frame>
+        <frame name='BM_02_link_cam' attached_to='joint_01_02_FN' />
+        <frame name='joint_01_03_FN' attached_to='BM_01_link'>
+            <pose>-0.083 -0.001662 0.046956 0 -0 0</pose>
+        </frame>
+        <frame name='BM_03_link_imu' attached_to='joint_01_03_FN' />
+        <frame name='joint_24_25_FN' attached_to='FM_24_link'>
+            <pose>-0.01289 0.11 -0.07 -1.57079 1.57079 3.14159</pose>
+        </frame>
+        <frame name='FM_25_link_cam' attached_to='joint_24_25_FN' />
+        <frame name='joint_24_26_FN' attached_to='FM_24_link'>
+            <pose>0.037044 0.063662 0.013 -3e-06 -1.57079 3.14159</pose>
+        </frame>
+        <frame name='FM_26_link_imu' attached_to='joint_24_26_FN' />
+    </model>
+</sdf>
