@@ -1,6 +1,6 @@
 import os
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction
+from launch.actions import IncludeLaunchDescription, TimerAction, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -23,7 +23,8 @@ def generate_launch_description():
         ),
         launch_arguments={
             'world': empty_world_path,
-            'verbose': 'true'
+            'verbose': 'true',
+            'pause': 'true',  # Foxy的gazebo.launch.py参数名是pause
         }.items()
     )
     
@@ -34,19 +35,43 @@ def generate_launch_description():
         arguments=[
             '-file', model_path,
             '-entity', 'pipe_robot',
-            '-x', '1.0', '-y', '0', '-z', '5.0',
+            '-x', '1.0', '-y', '0', '-z', '1.0',
             '-R', '0', '-P', '0', '-Y', '0'
         ],
         output='screen'
     )
-    
-    
-    
+
+    # todo ================== 5. 启动描述 ===================
+    pause_world = ExecuteProcess(
+        cmd=['ros2', 'service', 'call', '/gazebo/pause_physics', 'std_srvs/srv/Empty'],
+        output='screen'
+    )
+
+    disable_gravity = ExecuteProcess(
+        cmd=[
+            'ros2', 'service', 'call', '/gazebo/set_physics_properties',
+            'gazebo_msgs/srv/SetPhysicsProperties',
+            '{time_step: 0.001, max_update_rate: 1000.0, gravity: {x: 0.0, y: 0.0, z: 0.0}, '
+            'ode_config: {auto_disable_bodies: false, sor_pgs_precon_iters: 0, sor_pgs_iters: 50, '
+            'sor_pgs_w: 1.3, sor_pgs_rms_error_tol: 0.0, cfm: 0.0, erp: 0.2, '
+            'contact_max_correcting_vel: 100.0, contact_surface_layer: 0.0, max_contacts: 20}}'
+        ],
+        output='screen'
+    )
+
     return LaunchDescription([
         gazebo_launch,
         TimerAction(
             period=2.0,
             actions=[spawn_model],
         ),
+        TimerAction(
+            period=1.0,  # 再次保险地暂停一次，防止插件启动后自动运行 
+            actions=[pause_world],
+        ),
+        # TimerAction(
+        #     period=0.5,  # 设置重力为0，方便观察纯关节运动
+        #     actions=[disable_gravity],
+        # ),
     ])
 
