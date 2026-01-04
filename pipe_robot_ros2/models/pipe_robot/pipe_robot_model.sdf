@@ -87,14 +87,15 @@
             <axis>
                 <xyz>0 0 -1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.05</lower>
+                    <upper>0.05</upper>
+                    <effort>100</effort>
+                    <velocity>1.0</velocity>
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>0.1</damping>
                 </dynamics>
             </axis>
         </joint>

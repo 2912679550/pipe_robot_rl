@@ -47,18 +47,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    disable_gravity = ExecuteProcess(
-        cmd=[
-            'ros2', 'service', 'call', '/gazebo/set_physics_properties',
-            'gazebo_msgs/srv/SetPhysicsProperties',
-            '{time_step: 0.001, max_update_rate: 1000.0, gravity: {x: 0.0, y: 0.0, z: 0.0}, '
-            'ode_config: {auto_disable_bodies: false, sor_pgs_precon_iters: 0, sor_pgs_iters: 50, '
-            'sor_pgs_w: 1.3, sor_pgs_rms_error_tol: 0.0, cfm: 0.0, erp: 0.2, '
-            'contact_max_correcting_vel: 100.0, contact_surface_layer: 0.0, max_contacts: 20}}'
-        ],
-        output='screen'
-    )
-
     return LaunchDescription([
         gazebo_launch,
         TimerAction(
@@ -69,9 +57,5 @@ def generate_launch_description():
             period=1.0,  # 再次保险地暂停一次，防止插件启动后自动运行 
             actions=[pause_world],
         ),
-        # TimerAction(
-        #     period=0.5,  # 设置重力为0，方便观察纯关节运动
-        #     actions=[disable_gravity],
-        # ),
     ])
 
