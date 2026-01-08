@@ -1,10 +1,12 @@
 <sdf version='1.7'>
     <model name='pipe_robot'>
+
         <joint name='fixed' type='fixed'>
             <pose relative_to='__model__'>0 0 0 0 -0 0</pose>
             <parent>world</parent>
             <child>BM_01_link</child>
         </joint>
+
         <link name='BM_01_link'>
             <pose relative_to='fixed'>0 0 0 0 -0 0</pose>
             <inertial>
@@ -85,17 +87,17 @@
             <parent>BM_01_link</parent>
             <child>BM_04_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-0.05</lower>
-                    <upper>0.05</upper>
-                    <effort>100</effort>
-                    <velocity>1.0</velocity>
+                    <lower>-0.0385</lower>
+                    <upper>0.015</upper>
+                    <effort>3000</effort>
+                    <velocity>0.05</velocity>
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
-                    <damping>0.1</damping>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -190,16 +192,17 @@
             <parent>BL_10_link</parent>
             <child>BL_12_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.011</lower>
+                    <upper>0.0</upper>
+                    <effort>360</effort>
+                    <velocity>0.06</velocity>   
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
+                    <spring_stiffness>29416.0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -346,16 +349,17 @@
             <parent>BR_11_link</parent>
             <child>BR_13_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.011</lower>
+                    <upper>0.0</upper>
+                    <effort>360</effort>
+                    <velocity>0.06</velocity>   
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
+                    <spring_stiffness>29416.0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -459,6 +463,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -504,12 +509,15 @@
             <axis>
                 <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.274090</upper>    <!-- 73 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.8</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -715,6 +723,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 0.2 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -817,6 +826,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -862,12 +872,15 @@
             <axis>
                 <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.274090</upper>    <!-- 73 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.8</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1073,6 +1086,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 0.2 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1175,6 +1189,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1269,14 +1284,17 @@
             <parent>BM_01_link</parent>
             <child>BM_09_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.047197533</upper>    <!-- 60 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.5</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1322,12 +1340,15 @@
             <axis>
                 <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.047197533</upper>    <!-- 60 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.5</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1411,16 +1432,17 @@
             <parent>FM_24_link</parent>
             <child>FM_27_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.0385</lower>
+                    <upper>0.015</upper>
+                    <effort>3000</effort>
+                    <velocity>0.05</velocity>
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1515,16 +1537,17 @@
             <parent>FL_32_link</parent>
             <child>FL_34_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.011</lower>
+                    <upper>0.0</upper>
+                    <effort>360</effort>
+                    <velocity>0.06</velocity>   
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
+                    <spring_stiffness>29416.0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1671,16 +1694,17 @@
             <parent>FR_33_link</parent>
             <child>FR_35_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>0</lower>
-                    <upper>0</upper>
-                    <effort>0</effort>
-                    <velocity>0</velocity>
+                    <lower>-0.011</lower>
+                    <upper>0.0</upper>
+                    <effort>360</effort>
+                    <velocity>0.06</velocity>   
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
-                    <spring_stiffness>0</spring_stiffness>
+                    <spring_stiffness>29416.0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1784,6 +1808,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -1829,12 +1854,15 @@
             <axis>
                 <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.274090</upper>    <!-- 73 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.8</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -2039,6 +2067,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 0.2 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -2141,6 +2170,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -2186,12 +2216,15 @@
             <axis>
                 <xyz>0 0 1</xyz>
                 <limit>
-                    <lower>-1e+16</lower>
-                    <upper>1e+16</upper>
+                    <lower>-0.488692</lower>   <!-- -28 deg -->
+                    <upper>1.274090</upper>    <!-- 73 deg -->
+                    <effort>600</effort>        <!-- N·m -->
+                    <velocity>0.8</velocity>   <!-- rad/s -->
                 </limit>
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping>1.0</damping>
                 </dynamics>
             </axis>
         </joint>
@@ -2397,6 +2430,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 0.2 </damping>
                 </dynamics>
             </axis>
         </joint>
@@ -2499,6 +2533,7 @@
                 <dynamics>
                     <spring_reference>0</spring_reference>
                     <spring_stiffness>0</spring_stiffness>
+                    <damping> 1.0 </damping>
                 </dynamics>
             </axis>
         </joint>
