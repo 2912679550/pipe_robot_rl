@@ -715,7 +715,7 @@
             <parent>BL_16_link</parent>
             <child>BL_20_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -1078,7 +1078,7 @@
             <parent>BR_17_link</parent>
             <child>BR_21_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -1130,7 +1130,7 @@
             <parent>BR_21_link</parent>
             <child>BR_23_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -1181,7 +1181,7 @@
             <parent>BM_01_link</parent>
             <child>BM_07_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -2059,7 +2059,7 @@
             <parent>FL_38_link</parent>
             <child>FL_42_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -2111,7 +2111,7 @@
             <parent>FL_42_link</parent>
             <child>FL_44_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -2422,7 +2422,7 @@
             <parent>FR_39_link</parent>
             <child>FR_43_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>
@@ -2577,7 +2577,7 @@
             <parent>FM_30_link</parent>
             <child>FM_31_link</child>
             <axis>
-                <xyz>0 0 -1</xyz>
+                <xyz>0 0 1</xyz>
                 <limit>
                     <lower>-1e+16</lower>
                     <upper>1e+16</upper>

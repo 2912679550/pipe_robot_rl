@@ -9,5 +9,6 @@
         "/opt/intel/openvino_2023/python",
         "/opt/intel/openvino_2023/python/python3"
     ],
-    "cmake.ignoreCMakeListsMissing": true
+    "cmake.ignoreCMakeListsMissing": true,
+    "ros.distro": "humble"
 }

@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="pipe_robot">
+  name="pipe_robot"> 
   <link
     name="BM_01_link">
     <inertial>
@@ -201,10 +201,10 @@
     <child
       link="BM_04_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0"
+      lower="-0.0385"
+      upper="0.015"
       effort="0"
       velocity="0" />
   </joint>
@@ -253,7 +253,7 @@
     type="continuous">
     <origin
       xyz="0.0002000000000002 0.138 0.0455144934992005"
-      rpy="3.14159265358979 -1.5707963267949 0" />
+      rpy="0 -1.5707963267949 0" />
     <parent
       link="BM_04_link" />
     <child
@@ -312,12 +312,12 @@
     <child
       link="BL_12_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
+      lower="-0.011"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="360"
+      velocity="0.06" />
   </joint>
   <link
     name="BL_05_link_copy1">
@@ -417,7 +417,7 @@
     type="continuous">
     <origin
       xyz="-0.000199999999999756 -0.138 0.0455144934992005"
-      rpy="3.14159265358979 -1.5707963267949 0" />
+      rpy="0.0 -1.5707963267949 0" />
     <parent
       link="BM_04_link" />
     <child
@@ -476,12 +476,12 @@
     <child
       link="BR_13_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
+      lower="-0.011"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="360"
+      velocity="0.06" />
   </joint>
   <link
     name="BR_06_link_copy1">
@@ -631,7 +631,7 @@
   </link>
   <joint
     name="joint_05_14_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="-0.0598644754360446 0.202329544507882 -0.0624999999999999"
       rpy="-3.14159265358979 0 0" />
@@ -641,6 +641,11 @@
       link="BL_14_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.274090"
+      effort="600"
+      velocity="0.8" />
   </joint>
   <link
     name="BL_16_link">
@@ -852,7 +857,7 @@
     <child
       link="BL_20_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="BL_22_link">
@@ -1002,7 +1007,7 @@
   </link>
   <joint
     name="joint_06_15_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="-0.0598644754360445 -0.202329544507882 -0.0624999999999999"
       rpy="0 0 0" />
@@ -1012,6 +1017,11 @@
       link="BR_15_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.274090"
+      effort="600"
+      velocity="0.8" />
   </joint>
   <link
     name="BR_17_link">
@@ -1223,7 +1233,7 @@
     <child
       link="BR_21_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="BR_23_link">
@@ -1276,7 +1286,7 @@
     <child
       link="BR_23_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="BM_07_link">
@@ -1329,7 +1339,7 @@
     <child
       link="BM_07_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="BM_08_link">
@@ -1376,7 +1386,7 @@
     type="continuous">
     <origin
       xyz="0 0 0.019"
-      rpy="3.14159265358979 -1.5707963267949 0" />
+      rpy="3.14159265358979 1.5707963267949 0" />
     <parent
       link="BM_07_link" />
     <child
@@ -1426,7 +1436,7 @@
   </link>
   <joint
     name="joint_01_09_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.07 0.062 0.084"
       rpy="0 1.5708 0" />
@@ -1435,7 +1445,12 @@
     <child
       link="BM_09_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.047197533"
+      effort="600"
+      velocity="0.5" />
   </joint>
   <link
     name="FM_24_link">
@@ -1479,7 +1494,7 @@
   </link>
   <joint
     name="joint_09_24_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0 0.27 0"
       rpy="0 0 0" />
@@ -1489,6 +1504,11 @@
       link="FM_24_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.047197533"
+      effort="600"
+      velocity="0.5" />
   </joint>
   <link
     name="FM_25_link_cam">
@@ -1647,12 +1667,12 @@
     <child
       link="FM_27_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      lower="-0.0385"
+      upper="0.015"
+      effort="3000"
+      velocity="0.05" />
   </joint>
   <link
     name="FL_32_link">
@@ -1699,7 +1719,7 @@
     type="continuous">
     <origin
       xyz="0.0001999999999997 0.138 0.0455144934992005"
-      rpy="0 -1.5707963267949 0" />
+      rpy="3.14159 -1.5707963267949 0" />
     <parent
       link="FM_27_link" />
     <child
@@ -1758,12 +1778,12 @@
     <child
       link="FL_34_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
+      lower="-0.011"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="360"
+      velocity="0.06" />
   </joint>
   <link
     name="FL_28_link_copy1">
@@ -1922,12 +1942,12 @@
     <child
       link="FR_35_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
+      lower="-0.011"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="360"
+      velocity="0.06" />
   </joint>
   <link
     name="FR_29_link_copy1">
@@ -2077,7 +2097,7 @@
   </link>
   <joint
     name="joint_28_36_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.0598644754360445 0.202329544507882 -0.0625"
       rpy="0 0 0" />
@@ -2087,6 +2107,11 @@
       link="FL_36_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.274090"
+      effort="600"
+      velocity="0.8" />
   </joint>
   <link
     name="FL_38_link">
@@ -2298,7 +2323,7 @@
     <child
       link="FL_42_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="FL_44_link">
@@ -2351,7 +2376,7 @@
     <child
       link="FL_44_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="FR_29_link">
@@ -2448,7 +2473,7 @@
   </link>
   <joint
     name="joint_29_37_RF"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.0598644754360446 -0.202329544507882 -0.0624999999999981"
       rpy="-3.14159265358979 0 3.14159265358979" />
@@ -2458,6 +2483,11 @@
       link="FR_37_link" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-0.488692"
+      upper="1.274090"
+      effort="600"
+      velocity="0.8" />
   </joint>
   <link
     name="FR_39_link">
@@ -2669,7 +2699,7 @@
     <child
       link="FR_43_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="FL_45_link">
@@ -2769,7 +2799,7 @@
     type="continuous">
     <origin
       xyz="0.084 0.062 -0.07"
-      rpy="3.1416 -1.5708 0" />
+      rpy="3.1416 -1.5708 3.14159" />
     <parent
       link="FM_24_link" />
     <child
@@ -2822,12 +2852,12 @@
     type="continuous">
     <origin
       xyz="0 0 0.019"
-      rpy="3.1416 -1.5708 0" />
+      rpy="3.1416 1.5708 0" />
     <parent
       link="FM_30_link" />
     <child
       link="FM_31_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
 </robot>
