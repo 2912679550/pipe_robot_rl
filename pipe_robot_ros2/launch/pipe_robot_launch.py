@@ -35,7 +35,7 @@ def generate_launch_description():
         arguments=[
             '-file', model_path,
             '-entity', 'pipe_robot',
-            '-x', '0.0', '-y', '0', '-z', '0.5',
+            '-x', '0.0', '-y', '0', '-z', '0.4',
             '-R', '0', '-P', '0', '-Y', '0'
         ],
         output='screen'
